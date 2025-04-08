@@ -1,34 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文本网页</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <title>现代化文本展示页面</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E40AF',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .dark {
+            color-scheme: dark;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .dark .card-hover:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
-    <header class="bg-blue-600 text-white p-8 text-center">
-        <h1 class="text-4xl font-bold">欢迎来到文本网页2222测试测试2</h1>
-        <p class="text-lg mt-2">这是一个展示文本内容的网页示例</p>
-    </header>
-    <main class="container mx-auto p-8">
-        <section class="bg-white shadow-md rounded p-6 mb-8">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">主要三生三世内容</h2>
-            <p class="text-gray-700 leading-relaxed">
-                这里是主要的文本内容。Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+    <!-- 导航栏 -->
+    <nav class="bg-white dark:bg-gray-800 shadow-sm fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-gray-800 dark:text-white">文本展示</h1>
+            <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700">
+                <i class="fas fa-moon dark:hidden"></i>
+                <i class="fas fa-sun hidden dark:block"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 pt-20 pb-16">
+        <!-- 头部区域 -->
+        <header class="text-center mb-12 animate-fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                欢迎来到文本网页
+            </h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300">
+                这是一个现代化的文本内容展示平台
             </p>
-        </section>
-        <section class="bg-white shadow-md rounded p-6">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">更多信息</h2>
-            <p class="text-gray-700 leading-relaxed">
-                这里可以添加更多的文本信息。Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-        </section>
+        </header>
+
+        <!-- 内容区域 -->
+        <div class="grid gap-8 md:grid-cols-2">
+            <!-- 主要内容卡片 -->
+            <section class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover animate-slide-up">
+                <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+                    <i class="fas fa-book-open mr-2 text-primary"></i>
+                    主要内容
+                </h2>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    这里是主要的文本内容。Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </section>
+
+            <!-- 更多信息卡片 -->
+            <section class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover animate-slide-up">
+                <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+                    <i class="fas fa-info-circle mr-2 text-primary"></i>
+                    更多信息
+                </h2>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    这里可以添加更多的文本信息。Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </section>
+        </div>
     </main>
-    <footer class="bg-gray-800 text-white text-center p-4">
-        <p>&copy; 2025 文本网页版权所有沙发斯蒂芬</p>
+
+    <!-- 作者信息区域 -->
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-4 py-8">
+            <div class="text-center">
+                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">关于作者</h3>
+                <div class="flex justify-center space-x-6 mb-4">
+                    <a href="https://github.com/yourusername" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://twitter.com/yourusername" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/yourusername" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300">
+                    © 2024 文本网页. 保留所有权利
+                </p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // 深色模式切换
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // 检查系统主题偏好
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            html.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
     
