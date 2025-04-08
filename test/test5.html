@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="1120" viewBox="0 0 800 1120" xmlns="http://www.w3.org/2000/svg">
+    <!-- 定义渐变和滤镜 -->
+    <defs>
+        <!-- 渐变定义 -->
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#2c3e50;stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f39c12;stop-opacity:1" />
+        </linearGradient>
+
+        <!-- 滤镜定义 -->
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <!-- 背景 -->
+    <rect width="800" height="1120" fill="url(#bgGradient)"/>
+    
+    <!-- 装饰性背景元素 -->
+    <g opacity="0.1">
+        <circle cx="400" cy="560" r="300" fill="white"/>
+        <circle cx="400" cy="560" r="250" fill="none" stroke="white" stroke-width="2"/>
+        <circle cx="400" cy="560" r="200" fill="none" stroke="white" stroke-width="2"/>
+    </g>
+
+    <!-- 主要内容 -->
+    <g transform="translate(400, 560)">
+        <!-- 标题 -->
+        <text x="0" y="-200" 
+              font-family="'Noto Serif SC', serif" 
+              font-size="72" 
+              font-weight="bold" 
+              text-anchor="middle" 
+              fill="url(#textGradient)"
+              filter="url(#glow)">
+            优雅设计
+        </text>
+
+        <!-- 副标题 -->
+        <text x="0" y="-120" 
+              font-family="'Noto Sans SC', sans-serif" 
+              font-size="36" 
+              text-anchor="middle" 
+              fill="white">
+            探索无限可能
+        </text>
+
+        <!-- 装饰性线条 -->
+        <line x1="-200" y1="-150" x2="200" y2="-150" 
+              stroke="url(#textGradient)" 
+              stroke-width="2" 
+              opacity="0.5"/>
+
+        <!-- 中心图形 -->
+        <g transform="scale(0.8)">
+            <!-- 外圈 -->
+            <circle cx="0" cy="0" r="100" 
+                    fill="none" 
+                    stroke="url(#textGradient)" 
+                    stroke-width="4" 
+                    opacity="0.8"/>
+            
+            <!-- 内圈 -->
+            <circle cx="0" cy="0" r="80" 
+                    fill="none" 
+                    stroke="white" 
+                    stroke-width="2" 
+                    opacity="0.6"/>
+            
+            <!-- 装饰性点 -->
+            <g fill="white">
+                <circle cx="0" cy="-100" r="4"/>
+                <circle cx="100" cy="0" r="4"/>
+                <circle cx="0" cy="100" r="4"/>
+                <circle cx="-100" cy="0" r="4"/>
+            </g>
+        </g>
+
+        <!-- 底部文字 -->
+        <text x="0" y="200" 
+              font-family="'Noto Sans SC', sans-serif" 
+              font-size="24" 
+              text-anchor="middle" 
+              fill="white" 
+              opacity="0.8">
+            2024 · 创意无限
+        </text>
+    </g>
+
+    <!-- 动画定义 -->
+    <style>
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        /* 应用动画 */
+        circle {
+            animation: rotate 20s linear infinite;
+        }
+        
+        text {
+            animation: pulse 3s ease-in-out infinite;
+        }
+    </style>
+</svg>
