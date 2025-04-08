@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SD114 作品集</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E40AF',
+                        accent: '#10B981',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-in-out',
+                        'scale': 'scale 0.3s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        scale: {
+                            '0%': { transform: 'scale(1)' },
+                            '100%': { transform: 'scale(1.05)' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .dark {
+            color-scheme: dark;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .dark .card-hover:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: scale(1.02);
+        }
+        .lazy-load {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .lazy-load.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+    <!-- 导航栏 -->
+    <nav class="bg-white dark:bg-gray-800 shadow-sm fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-gray-800 dark:text-white">SD114 作品集</h1>
+            <div class="flex items-center space-x-4">
+                <a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                    项目展示
+                </a>
+                <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                    关于我
+                </a>
+                <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 pt-20 pb-16">
+        <!-- 头部区域 -->
+        <header class="text-center mb-16 animate-fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                SD114 作品集
+            </h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                探索我的创意世界，展示技术与艺术的完美结合
+            </p>
+        </header>
+
+        <!-- 项目展示区域 -->
+        <section id="projects" class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+                <i class="fas fa-code-branch mr-2 text-primary"></i>
+                精选项目
+            </h2>
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- 项目卡片 1 -->
+                <article class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden project-card animate-slide-up">
+                    <div class="aspect-video bg-gray-200 dark:bg-gray-700 relative overflow-hidden">
+                        <img src="https://via.placeholder.com/600x400" alt="项目预览" class="w-full h-full object-cover lazy-load">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">项目名称</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">项目简短描述，展示主要功能和特点。</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm">
+                                React
+                            </span>
+                            <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 rounded-full text-sm">
+                                Node.js
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 项目卡片 2 -->
+                <article class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden project-card animate-slide-up">
+                    <div class="aspect-video bg-gray-200 dark:bg-gray-700 relative overflow-hidden">
+                        <img src="https://via.placeholder.com/600x400" alt="项目预览" class="w-full h-full object-cover lazy-load">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">项目名称</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">项目简短描述，展示主要功能和特点。</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-100 rounded-full text-sm">
+                                Vue.js
+                            </span>
+                            <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100 rounded-full text-sm">
+                                TypeScript
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 项目卡片 3 -->
+                <article class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden project-card animate-slide-up">
+                    <div class="aspect-video bg-gray-200 dark:bg-gray-700 relative overflow-hidden">
+                        <img src="https://via.placeholder.com/600x400" alt="项目预览" class="w-full h-full object-cover lazy-load">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">项目名称</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">项目简短描述，展示主要功能和特点。</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-100 rounded-full text-sm">
+                                Python
+                            </span>
+                            <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-100 rounded-full text-sm">
+                                Django
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 关于我区域 -->
+        <section id="about" class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+                <i class="fas fa-user-circle mr-2 text-primary"></i>
+                关于我
+            </h2>
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 max-w-3xl mx-auto">
+                <div class="text-center mb-8">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+                        <img src="https://via.placeholder.com/128" alt="个人头像" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">SD114</h3>
+                    <p class="text-gray-600 dark:text-gray-300">全栈开发工程师 / 创意设计师</p>
+                </div>
+                <div class="prose dark:prose-invert max-w-none">
+                    <p class="text-gray-700 dark:text-gray-300">
+                        这里是关于我的介绍，可以描述您的专业背景、技能特长、工作经验等。让访问者更好地了解您。
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 作者信息区域 -->
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-4 py-8">
+            <div class="text-center">
+                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">联系方式</h3>
+                <div class="flex justify-center space-x-6 mb-4">
+                    <a href="https://sd114.wiki" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        <i class="fas fa-globe text-2xl"></i>
+                    </a>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300">
+                    © 2024 SD114. 保留所有权利
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 深色模式切换
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // 检查系统主题偏好
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            html.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 图片懒加载
+        const lazyImages = document.querySelectorAll('.lazy-load');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('loaded');
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        lazyImages.forEach(image => {
+            imageObserver.observe(image);
+        });
+    </script>
+</body>
+</html>
+    
